@@ -1,0 +1,15 @@
+simple-service-1:
+  build: .
+
+simple-service-2:
+  build: .
+
+simple-service-3:
+  build: .
+
+nginx:
+  build: .
+  dockerfile: Dockerfile-nginx
+  links: [simple-service-1, simple-service-2, simple-service-3]
+  ports:
+    - "8080:8080"

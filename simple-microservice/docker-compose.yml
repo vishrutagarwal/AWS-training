@@ -1,0 +1,11 @@
+postgres:
+  image: postgres:9.5.3
+  environment:
+    POSTGRES_PASSWORD: password
+    POSTGRES_USER: postgres
+
+simple-service:
+  build: .
+  links: [postgres]
+  ports:
+    - "8080:8080"
